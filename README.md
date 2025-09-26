@@ -1,4 +1,4 @@
-## Sinor Menu - Universal Grid Menu System
+## Sinor Menu
 - A grid style menu system that works with both QB and ESX frameworks. features a beautiful style grid layout with smooth animations.
 
 ## Features
@@ -205,5 +205,6 @@ end)
 - other wise join our discord server, you can find it in our tebex store.
 
 ## Note :
+
 
 - This menu is largely based on qb-menu code to simplifies adaptation for developers and server owners by drawing inspiration from qb-menu/ox_lib and other popular ones.
