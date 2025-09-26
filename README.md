@@ -1,4 +1,4 @@
-<img width="1486" height="670" alt="lootareas" src="https://github.com/user-attachments/assets/c76acb85-629c-4247-bf09-a96c404739b3" />## Sinor Menu
+## Sinor Menu
 - A grid style menu system that works with both QB and ESX frameworks. features a beautiful style grid layout with smooth animations.
 
 ## Features
@@ -215,4 +215,5 @@ end)
 
 
 - This menu is largely based on qb-menu code to simplifies adaptation for developers and server owners by drawing inspiration from qb-menu/ox_lib and other popular ones.
+
 
