@@ -1,0 +1,321 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+@media (width: 3840px) and (height: 2160px) {
+  #container {
+    font-size: 20px;
+    top: 30%;
+    right: 3%;
+  }
+
+  #grid-container {
+    font-size: 20px;
+    width: 1200px;
+  }
+
+  .grid-item .item-name {
+    font-size: 18px;
+  }
+
+  .grid-item .item-description {
+    font-size: 16px;
+  }
+}
+
+#container {
+  position: absolute;
+  height: auto;
+  top: 30%;
+  right: 3%;
+  border-radius: 10px;
+  background: transparent;
+  animation: containerSlideIn 0.5s ease-out;
+}
+
+@keyframes containerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#grid-container {
+  max-height: 85vh;
+  width: 900px;
+  overflow-y: auto;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  background: rgba(15, 15, 15, 0);
+  border-radius: 12px;
+}
+
+html, body {
+  background: transparent;
+}
+
+.grid-item {
+  width: 100%;
+  background: linear-gradient(145deg, #1a1a1a7d, #1a1a1a7d);
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.195);
+  text-align: center;
+  min-height: 140px;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0);
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: itemLoad 0.6s ease-out forwards;
+}
+
+@keyframes itemLoad {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.grid-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.grid-item:hover::before {
+  left: 100%;
+}
+
+.grid-item:hover {
+  background: linear-gradient(145deg, #146edc74, #146edc2a);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px #1485dc35;
+  z-index: 10;
+}
+
+.grid-item.title {
+  grid-column: 1 / -1;
+  cursor: default;
+  background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+  min-height: auto;
+  padding: 20px;
+  margin-bottom: 5px;
+  border: 1px solid #1485dc35;
+  animation: titleLoad 0.8s ease-out forwards;
+}
+
+@keyframes titleLoad {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid-item.title:hover {
+  background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+  transform: none;
+}
+
+.grid-item.disabled {
+  background: linear-gradient(145deg, #333, #444);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.grid-item.disabled:hover {
+  background: linear-gradient(145deg, #333, #444);
+  transform: none;
+}
+
+.item-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.grid-item:hover .item-icon {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.item-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover .item-icon img {
+  transform: scale(1.1);
+}
+
+.item-icon i {
+  font-size: 28px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.grid-item:hover .item-icon i {
+  color: #ffccd5;
+  transform: scale(1.1);
+}
+
+.item-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: white;
+  text-align: center;
+  line-height: 1.2;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  transition: color 0.3s ease;
+}
+
+.grid-item:hover .item-name {
+  color: #ffccd5;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.item-description {
+  font-size: 11px;
+  color: #aaaaaa;
+  text-align: center;
+  line-height: 1.3;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  transition: color 0.3s ease;
+}
+
+.grid-item:hover .item-description {
+  color: #eeeeee;
+}
+
+.title .item-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #1485dc35;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.title .item-description {
+  font-size: 13px;
+  color: #cccccc;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(23, 23, 23, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #1485dc53, #1485dc13);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #1485dc53, #1485dc13);
+}
+
+@media (max-width: 1600px) {
+  #grid-container {
+    width: 800px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  #container {
+    right: 2%;
+  }
+  
+  #grid-container {
+    width: 700px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  #grid-container {
+    width: 500px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.item-rarity-common { border-left: 3px solid #ffffff; }
+.item-rarity-uncommon { border-left: 3px solid #1eff00; }
+.item-rarity-rare { border-left: 3px solid #0070ff; }
+.item-rarity-epic { border-left: 3px solid #a335ee; }
+.item-rarity-legendary { border-left: 3px solid #ff8000; }
+
+.grid-item:hover .item-rarity-common { border-left-color: #dc143c; }
+.grid-item:hover .item-rarity-uncommon { border-left-color: #dc143c; }
+.grid-item:hover .item-rarity-rare { border-left-color: #dc143c; }
+.grid-item:hover .item-rarity-epic { border-left-color: #dc143c; }
+.grid-item:hover .item-rarity-legendary { border-left-color: #dc143c; }
+
+.item-quantity {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #1485dca8;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+}
